@@ -1,0 +1,22 @@
+create table department (
+id INT PRIMARY KEY,
+name VARCHAR(30)
+);
+
+create table employeerole (
+id INT not null,
+title  VARCHAR(30),
+salary DECIMAL,
+primary key (id),
+department_id  INT,
+foreign key (department_id) references department(id)
+);
+
+create table employeedb (
+id INT PRIMARY KEY not null,
+first_name VARCHAR(30) not null,
+last_name VARCHAR(30) not null,
+role_id  INT not null,
+manager_id INT,
+foreign key (role_id) references employeerole (id)
+);
